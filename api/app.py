@@ -11,7 +11,7 @@ import numpy as np
 import os
 
 app = Flask(__name__)
-base_path = os.path.dirname(__file__)
+base_path = os.path.dirname(os.path.dirname(__file__))
 
 # ── Load BERT ──────────────────────────────────────────────────────────────────
 print("Loading BERT model...")
@@ -72,7 +72,7 @@ def retrieve(user_input, top_k=TOP_K):
 # ── Routes ─────────────────────────────────────────────────────────────────────
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return "JIIT Assistant API Running"
 
 
 @app.route("/chat", methods=["POST"])
